@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="jquery.js"></script>
+    <title>products</title>
+  </head>
+  <style>
+    .center_body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .div_grid {
+      display: inline-flex;
+      justify-content: center;
+      width: 500px;
+      gap: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      position: absolute;
+      top: 30%;
+      padding: auto;
+    }
+
+    .grid_item1 {
+      width: 300px;
+      border-color: #a0153e;
+      color: #a0153e;
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      border-style: solid;
+      border-width: 10px;
+      font-weight: bolder;
+      font-size: larger;
+    }
+
+    .grid_item2 {
+      width: 300px;
+      border-color: #5d0e41;
+      color: #5d0e41;
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      border-style: solid;
+      border-width: 10px;
+      font-weight: bolder;
+      font-size: larger;
+    }
+
+    .grid_item3 {
+      width: 300px;
+      border-color: #00224d;
+      color: #00224d;
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      border-style: solid;
+      border-width: 10px;
+      font-weight: bolder;
+      font-size: larger;
+    }
+
+    .grid_item1:hover {
+      background-color: #a0153e;
+      color: white;
+      border: none;
+    }
+
+    .grid_item2:hover {
+      background-color: #5d0e41;
+      color: white;
+      border: none;
+    }
+
+    .grid_item3:hover {
+      background-color: #00224d;
+      color: white;
+      border: none;
+    }
+
+    .header_style {
+      font-size: 120px;
+      font-family: cursive;
+      font-weight: bolder;
+      color: #ff204e;
+    }
+
+    .header_style2 {
+      font-size: 120px;
+      font-family: cursive;
+      font-weight: bolder;
+      color:rgb(49, 255, 66);
+    }
+
+    .submit_button{
+      border: none;
+      background-color: #5d0e41;
+      padding : 30px;
+      font-weight: bolder;
+      color: white;
+      border-radius: 15px;
+    }
+  </style>
+
+  <body>
+    <div id = "main_div" class="center_body">
+      <h2 id="choice_header" class="header_style">Choose A Product</h2>
+      <br /><br />
+      <div id="prod_cho_div" class="div_grid">
+        <div id = "first_grid"><button id="hair_b" class="grid_item1">Hair care</button></div>
+        <div id = "second_grid"><button id="skin_b" class="grid_item2">Skin Care</button></div>
+        <div id = "third_grid"><button id="beauty_b" class="grid_item3">beauty care</button></div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    /*$().add(
+      "<div><button id='skin_b' class='grid_item1'>cherry Care</button></div>",
+    ).appendTo("#prod_cho_div");*/
+
+    let product = {
+      type:"",
+      product: "",
+      hair_type: "",
+      fragrance: "",
+      quantity: 0,
+
+    }
+
+    $("#hair_b").bind("click",()=>{
+      product.type = "Hair Care";
+      ProductStage();
+    })
+    $("#skin_b").bind("click",()=>{
+      product.type = "Skin care";
+    })
+    $("#beauty_b").bind("click",()=>{
+      product.type = "beauty Care";
+    })
+    function ProductStage(){
+      $("#first_grid").hide()
+      $("#second_grid").hide()
+      $("#third_grid").hide()
+      $("#choice_header").text("Choose Hair Product")
+      $().add(
+      "<div id ='option_div_a'><button id='option_a' class='grid_item1'>Shampoo</button></div>",
+    ).appendTo("#prod_cho_div");
+    $().add(
+      "<div id ='option_div_b'><button id='option_b' class='grid_item2'>Conditionar</button></div>",
+    ).appendTo("#prod_cho_div");
+    $().add(
+      "<div id ='option_div_c'><button id='option_c' class='grid_item3'>Cream</button></div>",
+    ).appendTo("#prod_cho_div");
+    
+    $("#option_div_a").bind("click",()=>{
+      product.product = "Shampoo";
+      fragranceStage()
+    })
+    $("#option_div_b").bind("click",()=>{
+      product.product = "Conditionar";
+      fragranceStage()
+    })
+    $("#option_div_c").bind("click",()=>{
+      product.product = "Cream";
+      fragranceStage()
+    })
+
+
+    }
+    function fragranceStage(){
+      $("#option_div_a").hide()
+      $("#option_div_b").hide()
+      $("#option_div_c").hide()
+      $("#choice_header").text("Choose Fragrance")
+      $().add(
+      "<div id ='smell_div_a'><button id='smell_a' class='grid_item1'>cherry</button></div>",
+    ).appendTo("#prod_cho_div");
+    $().add(
+      "<div id ='smell_div_b'><button id='smell_b' class='grid_item2'>citric</button></div>",
+    ).appendTo("#prod_cho_div");
+    $().add(
+      "<div id ='smell_div_c'><button id='smell_c' class='grid_item3'>Jasmine</button></div>",
+    ).appendTo("#prod_cho_div");
+
+    $("#smell_a").bind("click",()=>{
+      product.fragrance = "Cherry";
+      hairStage()
+    })
+    $("#smell_b").bind("click",()=>{
+      product.fragrance = "Citric";
+      hairStage()
+    })
+    $("#smell_c").bind("click",()=>{
+      product.fragrance = "jasmine";
+      hairStage()
+    })
+
+    }
+
+    function hairStage() {
+      $("#smell_div_a").hide()
+      $("#smell_div_b").hide()
+      $("#smell_div_c").hide()
+      $("#choice_header").text("Choose Hair Type")
+      $().add(
+      "<div id ='hair_div_a'><button id='hair_type_a' class='grid_item1'>Dry</button></div>",
+    ).appendTo("#prod_cho_div");
+    $().add(
+      "<div id ='hair_div_b' ><button id='hair_type_b' class='grid_item2'>Oily</button></div>",
+    ).appendTo("#prod_cho_div");
+    $().add(
+      "<div id ='hair_div_c' ><button id='hair_type_c' class='grid_item3'>Balanced</button></div>",
+    ).appendTo("#prod_cho_div");
+
+    $("#hair_type_a").bind("click",()=>{
+      product.hair_type = "Dry";
+      quantity_count()
+    })
+    $("#hair_type_b").bind("click",()=>{
+      product.hair_type = "Oily";
+      quantity_count()
+    })
+    $("#hair_type_c").bind("click",()=>{
+      product.hair_type = "Balanced";
+      quantity_count()
+    })
+    
+    }
+
+    function quantity_count(){
+     $("#choice_header").text("Choose Quantity")
+     $("#prod_cho_div").
+     html
+     ("<div id = 'quantity_div'><input id='count_in' type='number'>  <br><br> <button id='submit_button' class='submit_button'>Submit</button></div>");
+     $("#submit_button").bind("click",()=>{
+      product.quantity = 0
+      product.quantity += Number(document.getElementById("count_in").value)
+      console.log(product)
+      addTheCart()
+      $("#prod_cho_div").
+     html
+     ("<div class ='header_style2'>Go to Cart<div>");
+     })
+    }
+
+    function addTheCart(){
+
+            let products = localStorage.getItem('products');
+            if (products) {
+                products = JSON.parse(products);
+            } else {
+                products = [];
+            }
+
+            // Push newObj to the products array
+            products.push(product);
+
+
+            // Store the updated products array back to localStorage
+            localStorage.setItem('products', JSON.stringify(products));
+
+            products = localStorage.getItem('products');
+            if (products) {
+                products = JSON.parse(products);
+            } else {
+                products = [];
+            }
+
+            console.log(products)
+
+            console.log('New product added to localStorage');
+    }
+    
+  </script>
+</html>

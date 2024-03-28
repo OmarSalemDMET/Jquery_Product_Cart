@@ -1,0 +1,9 @@
+[
+    {
+        "type": "Shampoo",
+        "product": "Example Shampoo",
+        "hair_type": "All hair types",
+        "fragrance": "Lavender",
+        "quantity": 10
+    }
+]
